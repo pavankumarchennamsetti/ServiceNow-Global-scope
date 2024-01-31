@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2024-01-31 05:53:21">
+<sys_script action="INSERT_OR_UPDATE">
+<abort_action>false</abort_action>
+<access>package_private</access>
+<action_delete>false</action_delete>
+<action_insert>false</action_insert>
+<action_query>false</action_query>
+<action_update>true</action_update>
+<active>true</active>
+<add_message>false</add_message>
+<advanced>true</advanced>
+<change_fields>false</change_fields>
+<client_callable>false</client_callable>
+<collection>x_1240587_exam_spa_exam_record</collection>
+<condition/>
+<description/>
+<execute_function>false</execute_function>
+<filter_condition table="x_1240587_exam_spa_exam_record">exam_nameNOT LIKESSC MTS^EQ<item goto="false" or="false" field="exam_name" endquery="false" value="SSC MTS" operator="NOT LIKE" newquery="false"/>
+<item goto="false" or="false" field="" endquery="true" value="" operator="=" newquery="false"/>
+</filter_condition>
+<is_rest>false</is_rest>
+<message/>
+<name>Add Tag to Exam (Not MTS)</name>
+<order>100</order>
+<priority>100</priority>
+<rest_method display_value=""/>
+<rest_method_text/>
+<rest_service display_value=""/>
+<rest_service_text/>
+<rest_variables/>
+<role_conditions/>
+<script><![CDATA[(function executeRule(current, previous /*null when async*/ ) {
+
+    // Add your code here
+    var tag = new ExamTags();
+    if (current.final_score != "" && current.cut_off != "" && current.exam_state==6) {
+        if (current.final_score >= current.cut_off) {
+            tag.setLabel(current.getValue("sys_id"), "Selected", current.getValue("sys_class_name"), "EXAM", current.getValue("exam_name"));
+        }
+		else if(current.final_score<current.cut_off){
+			tag.setLabel(current.getValue("sys_id"),"Not_selected",current.getValue("sys_class_name"),"EXAM",current.getValue("exam_name"));
+		}
+    }
+	else{
+		tag.setLabel(current.getValue("sys_id"),"pending_result",current.getValue("sys_class_name"),"EXAM",current.getValue("exam_name"));
+	}
+
+})(current, previous);]]></script>
+<sys_class_name>sys_script</sys_class_name>
+<sys_created_by>pavankumarchennamsetti970@gmail.com</sys_created_by>
+<sys_created_on>2024-01-26 11:35:39</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path>/</sys_domain_path>
+<sys_id>1bea6a14974002105333ba6de053af30</sys_id>
+<sys_mod_count>3</sys_mod_count>
+<sys_name>Add Tag to Exam (Not MTS)</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Global" source="global">global</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_script_1bea6a14974002105333ba6de053af30</sys_update_name>
+<sys_updated_by>pavankumarchennamsetti970@gmail.com</sys_updated_by>
+<sys_updated_on>2024-01-26 12:01:19</sys_updated_on>
+<template/>
+<when>after</when>
+</sys_script>
+</unload>

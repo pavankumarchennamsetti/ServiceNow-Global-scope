@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2024-01-30 06:08:55">
+<sys_script_include action="INSERT_OR_UPDATE">
+<access>public</access>
+<active>true</active>
+<api_name>global.ExamTags</api_name>
+<caller_access/>
+<client_callable>false</client_callable>
+<description/>
+<name>ExamTags</name>
+<script><![CDATA[var ExamTags = Class.create();
+ExamTags.prototype = {
+    /*initialize: function() {
+		
+    },*/
+    getTag: function(tagName) {
+        var grTag = gs.getProperty("custom.exam.tags", "");
+        if (grTag == "") {
+            throw Error("Tag Not Found!");
+        }
+        var obj=JSON.parse(grTag);
+		return obj[tagName];
+
+    },
+
+    setLabel: function(recordId, tag, table, title, name) {
+        //gs.addErrorMessage("Test inside function1");
+        var grEntry = new GlideRecord("label_entry");
+        grEntry.table = table;
+        grEntry.table_key = recordId;
+        grEntry.label = this.getTag(tag);
+        grEntry.title = title + "-" + name;
+        grEntry.update();
+    },
+    type: 'ExamTags'
+};]]></script>
+<sys_class_name>sys_script_include</sys_class_name>
+<sys_created_by>pavankumarchennamsetti970@gmail.com</sys_created_by>
+<sys_created_on>2024-01-26 10:39:07</sys_created_on>
+<sys_id>7849d6d0970002105333ba6de053af57</sys_id>
+<sys_mod_count>19</sys_mod_count>
+<sys_name>ExamTags</sys_name>
+<sys_package display_value="Global" source="global">global</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_script_include_7849d6d0970002105333ba6de053af57</sys_update_name>
+<sys_updated_by>pavankumarchennamsetti970@gmail.com</sys_updated_by>
+<sys_updated_on>2024-01-26 11:50:12</sys_updated_on>
+</sys_script_include>
+</unload>

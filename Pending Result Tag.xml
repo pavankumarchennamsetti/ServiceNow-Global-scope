@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2024-01-31 05:51:30">
+<label action="INSERT_OR_UPDATE">
+<active>true</active>
+<background_color>#ed904e</background_color>
+<color>white</color>
+<global>true</global>
+<group_list/>
+<home_page>false</home_page>
+<icon/>
+<max_entries>20</max_entries>
+<name>Pending Result</name>
+<navigation>true</navigation>
+<order/>
+<owner display_value="Chennamsetti Pavan Kumar">f33f369c973a31105333ba6de053afbb</owner>
+<roles/>
+<short_description/>
+<sys_class_name>label</sys_class_name>
+<sys_created_by>pavankumarchennamsetti970@gmail.com</sys_created_by>
+<sys_created_on>2024-01-20 06:33:43</sys_created_on>
+<sys_default>false</sys_default>
+<sys_id>66dcee56973771105333ba6de053af35</sys_id>
+<sys_mod_count>2</sys_mod_count>
+<sys_updated_by>pavankumarchennamsetti970@gmail.com</sys_updated_by>
+<sys_updated_on>2024-01-20 06:34:18</sys_updated_on>
+<type>standard</type>
+<user_list/>
+<viewable_by>everyone</viewable_by>
+</label>
+</unload>
